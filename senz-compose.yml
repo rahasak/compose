@@ -1,0 +1,36 @@
+mongodb:
+    image: erangaeb/senzmongodb:0.1
+    container_name: senzmongodb
+    volumes:
+        ['/home/docker/senz/mongodb:/data/db']
+    ports:
+        - 27017:27017
+
+
+switch:
+    image: erangaeb/senzswitch:0.53
+    container_name: senzswitch
+    ports:
+        - 7070:7070
+    environment:
+        - MONGO_HOST=172.17.0.1
+        - SWITCH_MODE=PROD
+    volumes:
+        ['/home/docker/senz/switch/logs:/app/logs', '/home/docker/senz/switch/keys:/app/.keys']
+    links:
+        - mongodb
+
+
+stream:
+    image: erangaeb/streamswitch:0.7
+    container_name: streamswitch
+    ports:
+        - 9090:9090/udp
+    environment:
+        - MONGO_HOST=172.17.0.1
+        - SWITCH_MODE=PROD
+        - ENABLE_SENZ_PARSING=true
+    volumes:
+        ['/home/docker/senz/switch/logs:/app/logs', '/home/docker/senz/switch/keys:/app/.keys']
+    links:
+        - mongodb
