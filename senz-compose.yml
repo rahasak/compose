@@ -29,7 +29,7 @@ stream:
     environment:
         - MONGO_HOST=172.17.0.1
         - SWITCH_MODE=PROD
-        - ENABLE_SENZ_PARSING=true
+        - FEATURE_SENZ_PARSING=true
     volumes:
         ['/home/docker/senz/switch/logs:/app/logs', '/home/docker/senz/switch/keys:/app/.keys']
     links:
