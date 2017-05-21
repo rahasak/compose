@@ -15,6 +15,7 @@ docker-compose -f senz-compose.yml up -d
 ## switch
 ```
 # local
+# dev.localhost is the docker host of local machine, add host entry for it
 dev.localhost   7070
 
 # aws
@@ -24,6 +25,7 @@ dev.localhost   7070
 ## mongodb
 ```
 # local
+# dev.localhost is the docker host of local machine, add host entry for it
 dev.localhost   27017
 
 # aws
