@@ -37,7 +37,7 @@ stream:
 
 
 web:
-    image: hpcal1/rahasakweb:0.1
+    image: hpcal1/rahasakweb:0.2
     container_name: rahasakweb
     ports:
         - 80:8080
