@@ -22,7 +22,7 @@ switch:
 
 
 stream:
-    image: erangaeb/streamswitch:0.8
+    image: erangaeb/streamswitch:0.9
     container_name: streamswitch
     ports:
         - 9090:9090/udp
