@@ -8,7 +8,7 @@ mongodb:
 
 
 switch:
-    image: erangaeb/senzswitch:0.53
+    image: erangaeb/senzswitch:0.55
     container_name: senzswitch
     ports:
         - 7070:7070
