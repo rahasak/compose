@@ -50,3 +50,5 @@ dashboard:
     environment:
         - MONGO_HOST=172.17.0.1
         - MONGO_DB=senzies
+    links:
+        - mongodb
