@@ -2,21 +2,21 @@ mongodb:
     image: erangaeb/senzmongodb:0.1
     container_name: senzmongodb
     volumes:
-        ['/home/ubuntu/senz/mongodb:/data/db']
+        ['$MONGO_DATA_DIR:/data/db']
     ports:
         - 27017:27017
 
 
 switch:
-    image: erangaeb/senzswitch:0.55
+    image: erangaeb/senzswitch:0.57
     container_name: senzswitch
     ports:
         - 7070:7070
     environment:
-        - MONGO_HOST=172.17.0.1
-        - SWITCH_MODE=PROD
+        - MONGO_HOST=${MONGO_HOST}
+        - SWITCH_MODE=${SWITCH_MODE}
     volumes:
-        ['/home/ubuntu/senz/switch/logs:/app/logs', '/home/ubuntu/senz/switch/keys:/app/.keys']
+        ['$SWITCH_LOGS_DIR:/app/logs', '$SWITCH_KEYS_DIR:/app/.keys']
     links:
         - mongodb
 
@@ -27,14 +27,12 @@ stream:
     ports:
         - 9090:9090/udp
     environment:
-        - MONGO_HOST=172.17.0.1
-        - SWITCH_MODE=PROD
-        - FEATURE_TOGGLE_SENZ_PARSING=true
+        - MONGO_HOST=${MONGO_HOST}
+        - SWITCH_MODE=${SWITCH_MODE}
     volumes:
-        ['/home/ubuntu/senz/switch/logs:/app/logs', '/home/ubuntu/senz/switch/keys:/app/.keys']
+        ['$STREAM_LOGS_DIR:/app/logs', '$STREAM_KEYS_DIR:/app/.keys']
     links:
         - mongodb
-
 
 web:
     image: hpcal1/rahasakweb:0.2
@@ -43,12 +41,12 @@ web:
         - 80:8080
 
 dashboard:
-    image: hpcal1/senziesdashboard:0.2
+    image: hpcal1/senziesdashboard:0.3
     container_name: dashboard
     ports:
-        - 3000:3000
+        - 4000:4000
     environment:
-        - MONGO_HOST=172.17.0.1
-        - MONGO_DB=senzies
+        - MONGO_HOST=${MONGO_HOST}
+        - MONGO_DB=${MONGO_DB}
     links:
         - mongodb
