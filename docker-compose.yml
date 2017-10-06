@@ -35,16 +35,16 @@ stream:
         - mongodb
 
 
-web:
+rahasakweb:
     image: hpcal1/rahasakweb:0.2
     container_name: rahasakweb
     ports:
         - 80:8080
 
 
-dashboard:
+rahasakdashboard:
     image: hpcal1/senziesdashboard:0.3
-    container_name: dashboard
+    container_name: rahasakdashboard
     ports:
         - 4000:4000
     environment:
