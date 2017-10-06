@@ -80,8 +80,6 @@ studentportal:
 paymentportal:
     image: erangaeb/paymentportal:0.1 
     container_name: paymentportal
-    ports:
-        - 8080:8080
 
 
 nginx:
