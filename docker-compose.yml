@@ -89,7 +89,7 @@ paymentportal:
     image: erangaeb/paymentportal:0.2 
     container_name: paymentportal
     ports:
-        - 4000:4000
+        - 4000:80
     environment:
         - NODE_HOST=${NODE_HOST} 
         - NODE_PORT=${NODE_PORT} 
