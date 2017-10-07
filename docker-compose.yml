@@ -67,23 +67,41 @@ mysql:
 
 
 studentportal:
-    image: hpcal1/ucscstudentportal:0.1 
+    image: hpcal1/ucscstudentportal:0.2 
     container_name: studentportal
     ports:
-        - 4000:4000
+        - 3000:3000
     environment:
         - MYSQL_HOST=${MYSQL_HOST}
+        - MYSQL_USERNAME=${MYSQL_USERNAME}
+        - MYSQL_PASSWORD=${MYSQL_PASSWORD}
+        - MYSQL_DB=${MYSQL_DB}
+        - EXPRESS_SERVER_PORT=${EXPRESS_SERVER_PORT}
+        - SECRET_KEY=${SECRET_KEY}
+        - ENCRYPT_KEY=${ENCRYPT_KEY}
+        - OPENING_DATE=${OPENING_DATE}
+        - CLOSING_DATE=${CLOSING_DATE}
     links:
         - mysql
 
 
 paymentportal:
-    image: erangaeb/paymentportal:0.1 
+    image: erangaeb/paymentportal:0.2 
     container_name: paymentportal
+    ports:
+        - 4000:4000
+    environment:
+        - NODE_HOST=${NODE_HOST} 
+        - NODE_PORT=${NODE_PORT} 
+        - PGW_HOST=${PGW_HOST} 
+        - PGW_PORT=${PGW_PORT} 
+        - PGW_END_POINT=${PGW_END_POINT} 
+        - PGW_AUTH_TOKEN=${PGW_AUTH_TOKEN} 
+        - PGW_HMAC_SECRET=${PGW_HMAC_SECRET} 
 
 
 nginx:
-    image: erangaeb/senznginx:0.7
+    image: erangaeb/senznginx:0.8
     container_name: nginx
     ports:
         - 80:80
