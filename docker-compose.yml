@@ -101,7 +101,7 @@ paymentportal:
 
 
 nginx:
-    image: erangaeb/senznginx:0.8
+    image: erangaeb/senznginx:0.9
     container_name: nginx
     ports:
         - 80:80
