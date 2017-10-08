@@ -81,6 +81,8 @@ studentportal:
         - ENCRYPT_KEY=${ENCRYPT_KEY}
         - OPENING_DATE=${OPENING_DATE}
         - CLOSING_DATE=${CLOSING_DATE}
+        - PGW_HOST=${PGW_HOST} 
+        - PGW_PORT=${PGW_PORT} 
     links:
         - mysql
 
