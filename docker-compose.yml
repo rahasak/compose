@@ -98,6 +98,7 @@ paymentportal:
         - PGW_END_POINT=${PGW_END_POINT} 
         - PGW_AUTH_TOKEN=${PGW_AUTH_TOKEN} 
         - PGW_HMAC_SECRET=${PGW_HMAC_SECRET} 
+        - PGW_MODE=${PGW_MODE} 
 
 
 nginx:
