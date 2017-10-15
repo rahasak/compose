@@ -8,7 +8,7 @@ mongodb:
 
 
 switch:
-    image: erangaeb/senzswitch:0.57
+    image: erangaeb/senzswitch:0.58
     container_name: senzswitch
     ports:
         - 7070:7070
@@ -22,7 +22,7 @@ switch:
 
 
 stream:
-    image: erangaeb/streamswitch:0.14
+    image: erangaeb/streamswitch:0.15
     container_name: streamswitch
     ports:
         - 9090:9090/udp
