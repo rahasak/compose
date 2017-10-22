@@ -106,6 +106,8 @@ paymentportal:
 adminportal:
     image: hpcal1/ucscadminpanel:1.0
     container_name: adminportal
+    ports:
+        - 5000:3000
     environment:
         - MYSQL_HOST=${MYSQL_HOST}
         - MYSQL_USERNAME=${MYSQL_USERNAME}
