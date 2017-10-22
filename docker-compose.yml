@@ -67,7 +67,7 @@ mysql:
 
 
 studentportal:
-    image: hpcal1/ucscstudentportal:1.3
+    image: hpcal1/ucscstudentportal:1.4
     container_name: studentportal
     ports:
         - 3000:3000
@@ -101,6 +101,18 @@ paymentportal:
         - PGW_AUTH_TOKEN=${PGW_AUTH_TOKEN} 
         - PGW_HMAC_SECRET=${PGW_HMAC_SECRET} 
         - PGW_MODE=${PGW_MODE} 
+
+
+adminportal:
+    image: hpcal1/ucscadminpanel:1.0
+    container_name: adminportal
+    environment:
+        - MYSQL_HOST=${MYSQL_HOST}
+        - MYSQL_USERNAME=${MYSQL_USERNAME}
+        - MYSQL_PASSWORD=${MYSQL_PASSWORD}
+        - MYSQL_DB=${MYSQL_DB}
+        - EXPRESS_SERVER_PORT=${EXPRESS_SERVER_PORT}
+        - STUDENT_PORTAL_URL=${STUDENT_PORTAL_URL} 
 
 
 nginx:
