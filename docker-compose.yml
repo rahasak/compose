@@ -115,6 +115,8 @@ adminportal:
         - MYSQL_DB=${MYSQL_DB}
         - EXPRESS_SERVER_PORT=${EXPRESS_SERVER_PORT}
         - STUDENT_PORTAL_URL=${STUDENT_PORTAL_URL} 
+    links:
+        - mysql
 
 
 nginx:
