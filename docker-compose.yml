@@ -67,7 +67,7 @@ mysql:
 
 
 studentportal:
-    image: hpcal1/ucscstudentportal:1.4
+    image: hpcal1/ucscstudentportal:1.5
     container_name: studentportal
     ports:
         - 3000:3000
@@ -104,7 +104,7 @@ paymentportal:
 
 
 adminportal:
-    image: hpcal1/ucscadminpanel:1.0
+    image: hpcal1/ucscadminpanel:1.1
     container_name: adminportal
     ports:
         - 5000:3000
