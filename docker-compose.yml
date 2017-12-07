@@ -121,7 +121,7 @@ adminportal:
 
 
 nginx:
-    image: erangaeb/senznginx:0.10
+    image: erangaeb/senznginx:0.9
     container_name: nginx
     ports:
         - 80:80
