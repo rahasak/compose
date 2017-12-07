@@ -104,7 +104,7 @@ paymentportal:
 
 
 adminportal:
-    image: hpcal1/ucscadminpanel:1.4
+    image: hpcal1/ucscadminpanel:1.6
     container_name: adminportal
     ports:
         - 5000:3000
