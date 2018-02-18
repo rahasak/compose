@@ -21,6 +21,20 @@ switch:
         - mongodb
 
 
+zwitch:
+    image: erangaeb/zwitch:1.0
+    container_name: zwitch
+    ports:
+        - 7070:7070
+    environment:
+        - MONGO_HOST=${MONGO_HOST}
+        - SWITCH_MODE=${SWITCH_MODE}
+    volumes:
+        ['$SWITCH_LOGS_DIR:/app/logs', '$SWITCH_KEYS_DIR:/app/.keys']
+    links:
+        - mongodb
+
+
 stream:
     image: erangaeb/streamswitch:0.15
     container_name: streamswitch
