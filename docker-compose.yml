@@ -22,15 +22,15 @@ switch:
 
 
 zwitch:
-    image: erangaeb/zwitch:1.0
+    image: erangaeb/zwitch:2.0
     container_name: zwitch
     ports:
         - 7070:7070
     environment:
         - MONGO_HOST=${MONGO_HOST}
-        - SWITCH_MODE=${SWITCH_MODE}
+        - ZWITCH_MODE=${ZWITCH_MODE}
     volumes:
-        ['$SWITCH_LOGS_DIR:/app/logs', '$SWITCH_KEYS_DIR:/app/.keys']
+        ['$DOT_KEYS:/app/.keys']
     links:
         - mongodb
 
