@@ -22,7 +22,7 @@ switch:
 
 
 zwitch:
-    image: erangaeb/zwitch:2.0
+    image: erangaeb/zwitch:2.1
     container_name: zwitch
     ports:
         - 7070:7070
